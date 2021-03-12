@@ -1,19 +1,28 @@
 <template>
-  <div id="app" class="remove-this">
+  <div id="app" class="p-5">
+    <Navbar></Navbar>
+    <Report></Report>
   </div>
 </template>
 
 <script>
+import Navbar from './components/Navbar'
+import Report from './components/Report'
+
+
 export default {
   name: 'app',
-  components: {},
+  components: {
+    Navbar,
+    Report
+  },
   async mounted() {
     // Users
-    const userResponse = await fetch('/api/users');
-    const users = await userResponse.json();
+    // const userResponse = await fetch('/api/users');
+    // const users = await userResponse.json();
     // Reports
-    const reportResponse = await fetch('/api/reports');
-    const reports = await reportResponse.json();
+    // const reportResponse = await fetch('/api/reports');
+    // const reports = await reportResponse.json();
   }
 }
 </script>
@@ -30,8 +39,4 @@ html, body, #app {
   overflow: auto;
 }
 
-.remove-this {
-  background-image: url('./assets/background.png');
-  @apply bg-contain bg-no-repeat bg-center;
-}
 </style>

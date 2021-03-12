@@ -1,5 +1,6 @@
 import faker from 'faker';
 import { createServer, Model, Factory } from "miragejs"
+import moment from 'moment'
 
 export function makeServer({ environment = "development" } = {}) {
     return createServer({
@@ -25,7 +26,7 @@ export function makeServer({ environment = "development" } = {}) {
                     return faker.internet.email();
                 },
                 sessions() {
-                    return [faker.date.past(), faker.date.past(), faker.date.past()]
+                    return [moment(faker.date.past()).format("LL"), moment(faker.date.past()).format("LL"), moment(faker.date.past()).format("LL")]
                 },
                 status() {
                     return faker.random.boolean();
