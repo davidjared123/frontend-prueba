@@ -16,9 +16,17 @@ export default {
     // this.chartData is created in the mixin.
     // If you want to pass options please create a local options object
     this.renderChart(this.data, {
-      borderWidth: "10px",
+      borderWidth: "5px",
       hoverBackgroundColor: "red",
-      hoverBorderWidth: "10px"
+      hoverBorderWidth: "5px",
+      responsive: true,
+        legend: {
+          display: true,
+          boxWidth: 5,
+          position: 'bottom',
+          radius: 50,
+        },
+        
     });
   }
 };

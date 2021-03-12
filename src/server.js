@@ -14,7 +14,9 @@ export function makeServer({ environment = "development" } = {}) {
         factories: {
             user: Factory.extend({
                 profile_img() {
-                    return  faker.image.avatar();
+                    // la api que usa faker para las imagenes esta rota
+                    // return faker.image.avatar()
+                    return faker.image.people(400, 400);
                 },
                 first_name() {
                     return faker.name.firstName();
@@ -27,6 +29,11 @@ export function makeServer({ environment = "development" } = {}) {
                 },
                 sessions() {
                     return [moment(faker.date.past()).format("LL"), moment(faker.date.past()).format("LL"), moment(faker.date.past()).format("LL")]
+                },
+                last_session(){
+                    const last = []
+                    this.sessions.map(e => last.push(moment(e).fromNow()))
+                    return last
                 },
                 status() {
                     return faker.random.boolean();
